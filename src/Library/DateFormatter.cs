@@ -20,11 +20,20 @@ public class DateFormatter
         char[] validCharacters = {'1','2','3','4','5','6','7','8','9','0','/'};
         if (date.Length == 10)
         {
+            int[] month31day = {1, 3, 5, 7, 8, 10, 12};
             string day = date.Substring(0,2);
             string month = date.Substring (3,2);
             int dayInt = int.Parse(day);
             int monthInt = int.Parse(month);
             if (dayInt > 31 || monthInt > 12)
+            {
+                return "Error, ingrese el formato correcto.";
+            }
+            if (dayInt == 31 && month31day.Contains(monthInt) == false)
+            {
+                return "Error, ingrese el formato correcto.";
+            }
+            if (dayInt > 29 && monthInt == 02)
             {
                 return "Error, ingrese el formato correcto.";
             }
