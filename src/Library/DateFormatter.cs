@@ -20,6 +20,11 @@ public class DateFormatter
         char[] validCharacters = {'1','2','3','4','5','6','7','8','9','0','/'};
         if (date.Length == 10)
         {
+            foreach (char item in date)
+            {
+                if (validCharacters.Contains(item) == false)
+                    return "Error, ingrese el formato correcto.";
+            }
             int[] month31day = {1, 3, 5, 7, 8, 10, 12};
             string day = date.Substring(0,2);
             string month = date.Substring (3,2);
@@ -39,8 +44,6 @@ public class DateFormatter
             }
             foreach (char item in date)
             {
-                if (validCharacters.Contains(item) == false)
-                    return "Error, ingrese el formato correcto.";
                 if (item == '/')
                 {
                     count++;

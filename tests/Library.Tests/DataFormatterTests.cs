@@ -25,4 +25,12 @@ public class DateFormatterTests
         string date = DateFormatter.ChangeFormat(dateCtrl);
         Assert.AreEqual(date, expected);
     }
+    [Test]
+    public void TestValidDate()
+    {
+        string expected = "Error, ingrese el formato correcto.";
+        string dateCtrl = "30/02/1997";
+        string date = DateFormatter.ChangeFormat(dateCtrl);
+        Assert.AreEqual(date, expected);
+    }
 }
